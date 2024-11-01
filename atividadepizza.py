@@ -3,33 +3,40 @@
 #- tamanho da pizza: pequena R$20,média-R$30,grande-R$40.
 #o programa deverá perguntar se deseja adicionar ingredientes extras como:calabresa,mussarela,tomate,cebola,bacon.
 #cada ingrediente extra tem o valor de R$ 5,00. por fim, se deseja beber algum refrigerante valor de R$8,00
+pedidos = []
+quantidadepedidos = 0
 soma = 0
-pizza = str(input("Qual tamanho da pizza que voce gostaria?"))
-if pizza == "pequena":
+while True:
+    nome = str(input("Olá boa noite,bem vindo a Pizzaria do Sr ekko.Qual será sua escolha de hoje? "))
+    pizza = str(input("Escolha o tamanho da pizza (pequena, média, grande:"))
+    if pizza == "pequena":
        soma+=20
-if pizza == "media":
+    if pizza == "media":
        soma +=30
-if pizza == "grande":
-     soma += 40
-ingre = ['calabresa','mussarela','tomate','cebola','bacon']
-for i in range(1): 
- extra = str(input("Deseja adicionar algum ingrediente extra?"))
- if extra == "calabresa":
-      print ('calabresa')
-      soma += 5
- if extra == "mussarela":
-      print('mussarela')
-      soma += 5
- if extra == "tomate":
-      print('tomate')
-      soma += 5
- if extra == "cebola":
-      print('cebola')
-      soma += 5
- if extra == "bacon":
-      print('bacon')
-      soma += 5
-bebida = str(input("Deseja beber um refri?"))
-if bebida == 'sim':
-    soma += 8
-    print(soma)
+    if pizza == "grande":
+        soma += 40
+    ingre = ['calabresa','mussarela','tomate','cebola','bacon']
+    
+    extra = input("Deseja adicionar um ingrediente extra temos (calabresa, mussarela, tomate, cebola, bacon)? (sim/não): ")
+    if  extra == 'sim':
+        ingrediente = int(input("Quantos ingredientes extras deseja adicionar? "))
+        soma += ingrediente * 5
+    refrigerante = input("Deseja beber um refrigerante? (sim/não):")
+    if refrigerante == 'sim':
+        soma += 8
+    
+    pedidos.append(soma)
+    quantidadepedidos += 1
+    print(f"Valor do pedido: R${soma:.2f}")
+
+    continuar = input("Deseja fazer outro pedido? (sim/não): ")
+    if continuar != 'sim':
+        break
+
+if pedidos:
+    print(f"Pedido mais caro: R${max(pedidos):.2f}")
+    print(f"Pedido mais baixo: R${min(pedidos):.2f}")
+    print(f"Quantidade de pedidos realizados: {quantidadepedidos}")
+else:
+    print("Nenhum pedido foi realizado.")
+
