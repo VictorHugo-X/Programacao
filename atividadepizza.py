@@ -3,6 +3,10 @@
 #- tamanho da pizza: pequena R$20,média-R$30,grande-R$40.
 #o programa deverá perguntar se deseja adicionar ingredientes extras como:calabresa,mussarela,tomate,cebola,bacon.
 #cada ingrediente extra tem o valor de R$ 5,00. por fim, se deseja beber algum refrigerante valor de R$8,00
+#apos,perguntar se deseka fazer um novo pedido 
+#dizer qual foi o pedido mais caro
+#dizer qual foi o pedido mais baixo
+#quantidade de pedidos realizados
 soma = 0
 pizza = str(input("Qual tamanho da pizza que voce gostaria?"))
 if pizza == "pequena":
@@ -14,22 +18,23 @@ if pizza == "grande":
 ingre = ['calabresa','mussarela','tomate','cebola','bacon']
 for i in range(1): 
  extra = str(input("Deseja adicionar algum ingrediente extra?"))
- if extra == "calabresa":
+if extra == "calabresa":
       print ('calabresa')
       soma += 5
- if extra == "mussarela":
+if extra == "mussarela":
       print('mussarela')
       soma += 5
- if extra == "tomate":
+if extra == "tomate":
       print('tomate')
       soma += 5
- if extra == "cebola":
+if extra == "cebola":
       print('cebola')
       soma += 5
- if extra == "bacon":
+if extra == "bacon":
       print('bacon')
       soma += 5
 bebida = str(input("Deseja beber um refri?"))
 if bebida == 'sim':
-    soma += 8
-    print(soma)
+   soma += 8
+if bebida == 'nao':
+ print(soma)
